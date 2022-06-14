@@ -28,7 +28,6 @@ AddressBook.prototype.deleteContact = function(id) {
   return true; 
 };
 
-
 // Business Log for Contacts ------
 function Contact(firstName, lastName, phoneNumber) {
   this.firstName = firstName;
@@ -43,3 +42,19 @@ Contact.prototype.fullName = function() {
 Contact.prototype.update = function() {
   return this.firstName + "!";
 }
+
+// User Interface Logic -----
+
+let addressBook = new AddressBook();
+
+$(document).ready(function() {
+  $("form#new-contact").submit(function(event) {
+    event.preventDefault();
+    const inputtedFirstName = $("input#new-first-name").val();
+    const inputtedLastName = $("input#new-last-name").val();
+    const inputtedPhoneNumber = $("input#new-phone-number").val();
+    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+    addressBook.addContact(newContact);
+    console.log(addressBook.contacts);
+  });
+});
