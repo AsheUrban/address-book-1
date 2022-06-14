@@ -29,10 +29,12 @@ AddressBook.prototype.deleteContact = function(id) {
 };
 
 // Business Log for Contacts ------
-function Contact(firstName, lastName, phoneNumber) {
+function Contact(firstName, lastName, phoneNumber, emailAddress, physicalAddress) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
+  this.emailAddress = emailAddress;
+  this.physicalAddress = physicalAddress;
 }
 
 Contact.prototype.fullName = function() {
